@@ -30,7 +30,7 @@ jobs:
       run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
 
     - name: Run tests
-      shell: powershell
+      shell: bash
       run: |
         $env:PYTHONPATH = "${env:PYTHONPATH};${PWD}"
         python -m pytest tests/ --maxfail=1 --disable-warnings -v
