@@ -25,7 +25,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install pytest pytest-html
- 
-    - name: Run tests with pytest
+    - name: Set PYTHONPATH
+  run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+  - name:Run tests with pytest
   run: |
-    PYTHONPATH=. python -m pytest tests/ --maxfail=1 --disable-warnings -q
+    PYTHONPATH=$PWD pytest --maxfail=1 --disable-warnings -q
