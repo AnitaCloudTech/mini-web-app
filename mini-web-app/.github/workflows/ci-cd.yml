@@ -27,6 +27,7 @@ jobs:
         pip install pytest pytest-html
 
     - name: Run tests with pytest
-      run: |
-        export PYTHONPATH=$PYTHONPATH:$(pwd)
-        pytest --maxfail=1 --disable-warnings -q
+  run: |
+    pytest --maxfail=1 --disable-warnings -q
+  env:
+    PYTHONPATH: ${{ github.workspace }}/mini-web-app
